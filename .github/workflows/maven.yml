@@ -6,12 +6,12 @@ name: Java CI with Maven
 on:
   push:
     branches:
-      - master
+      - main
     tags:
       - '**'
   pull_request:
     branches:
-      - master
+      - main
 
 jobs:
   build:
