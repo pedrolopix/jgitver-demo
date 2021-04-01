@@ -7,7 +7,7 @@
   </exclusions>
   <branchPolicies>
     <branchPolicy>
-      <pattern>^(([0-9]+\.[0-9]+\.[0-9]+(-.+)?)|release\/([0-9]+\.[0-9]+\.[0-9]+(-.+)?)|master|develop)$</pattern>
+      <pattern>^(([0-9]+\.[0-9]+\.[0-9]+(-.+)?)|release\/([0-9]+\.[0-9]+\.[0-9]+(-.+)?)|main|master|develop)$</pattern>
       <transformations>
         <transformation>IGNORE</transformation>
       </transformations>
