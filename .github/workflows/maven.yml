@@ -21,13 +21,20 @@ jobs:
       with:
         fetch-depth: 0
 
+#    - name: Step that prints name of pull request's base branch
+#      run: |
+#        echo "Pull request's base branch is: ${BASE_BRANCH}"
+#      env:
+#        BASE_BRANCH: ${{ github.base_ref }}
+#      if: github.event_name == 'pull_request'
+
 #    - name: Get all git tags
 #      run: git fetch --prune --unshallow --tags
 
-    - name: Extract branch name
-      shell: bash
-      run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF##*/})"
-      id: extract_branch
+#    - name: Extract branch name
+#      shell: bash
+#      run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF##*/})"
+#      id: extract_branch
 
     - name: Set up JDK 11
       uses: actions/setup-java@v1
@@ -42,4 +49,7 @@ jobs:
         restore-keys: ${{ runner.os }}-m2
 
     - name: Build
-      run: JGITVER_BRANCH=${{ steps.extract_branch.outputs.branch }} && mvn --batch-mode clean verify
+      run: mvn --batch-mode clean verify
+
+#    - name: Build
+#      run: JGITVER_BRANCH=${BASE_BRANCH} && mvn --batch-mode clean verify
